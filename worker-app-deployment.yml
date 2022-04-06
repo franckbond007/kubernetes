@@ -1,0 +1,23 @@
+---
+apoiVersion: apps/1
+kind: Deployment
+metadata:
+  name: worker-app-deployment
+  labels:
+    author: francis
+    name: worker-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchlabels:
+      name: worker-app-deployment
+  template:
+    metadata:
+      name: worker-app-pod
+      labels:
+        name: worker-app-deployment
+    spec:
+      containers:
+        - name: worker-app
+          image: dockersamples/examplevotingapp_worker
+...

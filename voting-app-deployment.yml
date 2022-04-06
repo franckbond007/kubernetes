@@ -1,0 +1,23 @@
+---
+apoiVersion: apps/1
+kind: Deployment
+metadata:
+  name: voting-app-deployment
+  labels:
+    author: francis
+    name: voting-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchlabels:
+      name: voting-app-deployment
+  template:
+    metadata:
+      name: voting-app-pod
+      labels:
+        name: voting-app-deployment
+    spec:
+      containers:
+        - name: voting-app
+          image: dockersamples/examplevotingapp_vote
+...

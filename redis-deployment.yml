@@ -1,0 +1,23 @@
+---
+apoiVersion: apps/1
+kind: Deployment
+metadata:
+  name: redis-app-deployment
+  labels:
+    author: francis
+    name: redis-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchlabels:
+      name: redis-app-deployment
+  template:
+    metadata:
+      name: redis-app-pod
+      labels:
+        name: redis-deployment
+    spec:
+      containers:
+        - name: redis
+          image: redis
+      ...

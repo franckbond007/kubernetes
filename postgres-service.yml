@@ -1,0 +1,15 @@
+---
+apiVersion:
+kind: Service
+metadata:
+   name: podtgres-service
+   labels:
+      authors: francis
+spec:
+   porst:
+      - targetPort: 5432
+        port: 5432
+selector:
+   name: postgres-deployment
+...
+

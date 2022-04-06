@@ -1,0 +1,31 @@
+---
+apoiVersion: apps/1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+  labels:
+    author: francis
+    name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchlabels:
+      name: postgres-deployment
+  template:
+    metadata:
+      name: postgres-pod
+      labels:
+        name: postgres-deployment
+    spec:
+      containers:
+        - name: postgres
+          image: postgres
+          env:
+            - name: POSTGRES_PASSWORD
+              value: francis
+            - name: POSTGRES_USER
+              value: myuser
+            - name: POSTGRES_DB
+              value: mydb
+...
+
